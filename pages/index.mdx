@@ -16,9 +16,6 @@ import Charts from '../components/Charts'
 import ChartsII from '../components/ChartsII'
 import ChartStats from '../components/ChartStats'
 
-import IntroText from '../texts/Intro.mdx';
-import ReadingText from '../texts/Reading.mdx';
-import HowDoesItWorkText from '../texts/HowDoesItWork.mdx';
 
 
 <Intro>
@@ -26,7 +23,8 @@ import HowDoesItWorkText from '../texts/HowDoesItWork.mdx';
 # It is unreasonable to have the same eyeglasses prescribed to people with different vision needs. Why would it be reasonable to prescribe the same typography to people with different reading needs?
 
 ## Lexend is a variable font empirically shown to improve reading-proficiency significantly.
-### As prescription eyeglasses achieve proficiency for persons with short-sightedness, Lexend employs variable font technology to prescribe a personalized axis setting according to the Shaver-Troup Formulations.
+
+As prescription eyeglasses achieve proficiency for persons with short-sightedness, Lexend employs variable font technology to prescribe a personalized axis setting according to the Shaver-Troup Formulations.
 
 
 > ![](/static/images/noordzji-cover-cut.png) The word is the condition for reading. The word consists of both white and black forms in rhythm units. If the rhythm is weak; the word is poorly formed. If the rhythm is absent; there is no word. Reading is a spatial manner of intervals in both length and breadth.… Ignoring the white by pedagogy places civilization at risk. What is civilization if not the cultural community dependent on reading?
@@ -54,34 +52,30 @@ import HowDoesItWorkText from '../texts/HowDoesItWork.mdx';
 ## Reading-Proficiency is measured in fluency.
 Within education, there is consensus that reading fluency is one of the defining characteristics of good readers, and a lack of fluency is a common characteristic of poor readers.
 
-Differences in reading fluency not only distinguish good readers from poor, but a lack of reading fluency is also a reliable predictor of reading comprehension problems (Stanovich, 1991). Once struggling readers learn sound–symbol relationships through intervention and become accurate decoders, their lack of fluency emerges as the next hurdle they face on their way to reading proficiency (Torgesen et al., 2001; Torgesen, Rashotte, Alexander, Alexander, & MacPhee, 2003).
+Differences in reading fluency not only distinguish good readers from poor, but a lack of reading fluency is also a reliable predictor of reading comprehension problems (Stanovich, 1991). Once struggling readers learn sound–symbol relationships through intervention and become accurate d
+  ecoders, their lack of fluency emerges as the next hurdle they face on their way to reading proficiency (Torgesen et al., 2001; Torgesen, Rashotte, Alexander, Alexander, & MacPhee, 2003).
 
 This lack of fluent reading is a problem for poor readers because they tend to read in a labored, disconnected fashion with a focus on decoding at the word level that makes comprehension of the text difficult, if not impossible.
 
 ######  [Source](https://www.fcrr.org/publications/publicationspdffiles/hudson_lane_pullen_readingfluency_2005.pdf)
 
-## Fluency is measured in Words Correct Per Minute (WCPM).
+## Fluency is measured in Words Correct Per Minute.
 
-A student reads a story with <TotalNumberOfWords/> words in <TotalAmountOfTime/>. She made <TotalNumberOfErrors/> errors. To determine WCPM:
+A student reads a story with <TotalNumberOfWords/> words in <TotalAmountOfTime/>. She made <TotalNumberOfErrors/> errors. To determine WCPM (Words Correct Per Minute):
 
-1. Count the total number of words. Example: <code><TotalNumberOfWords/></code>
-2. Count the number of mistakes. Example: <code><TotalNumberOfErrors/></code>
-3. Take the number of words minus the number of mistakes = number of words read correctly. Example: <code><TotalNumberOfWords/> - <TotalNumberOfErrors/> = <TotalNumberOfCorrectWords/></code>
-4. Convert the time it took to read the passage to seconds. Example: <code><TotalAmountOfTime/> = <TotalAmountOfTime as="seconds"/>s</code>
-5. Convert the number of seconds to a decimal by dividing the number of seconds by 60. This is the total reading time. Example: <code><TotalAmountOfTime as="seconds"/>s / 60 = <TotalAmountOfTime as="decimal"/></code>
-6. Divide the number of words read correctly by the total reading time in decimal form. Example: <code><TotalNumberOfCorrectWords/> / <TotalAmountOfTime as="decimal"/> = <TotalWordsCorrectPerMinute/> WCPM</code>
+1. Count the total number of words.
+  <pre><code><TotalNumberOfWords/> words</code></pre>
+2. Count the number of mistakes.
+  <pre><code><TotalNumberOfErrors/> mistakes</code></pre>
+3. Take the number of words minus the number of mistakes = number of words read correctly.
+  <pre><code><TotalNumberOfWords/> words - <TotalNumberOfErrors/> mistakes = <TotalNumberOfCorrectWords/> correct words</code></pre>
+4. Convert the time it took to read the passage to seconds.
+  <pre><code><TotalAmountOfTime/> to read = <TotalAmountOfTime as="seconds"/>s</code></pre>
+5. Convert the number of seconds to a decimal by dividing the number of seconds by 60. This is the total reading time.
+  <pre><code><TotalAmountOfTime as="seconds"/>s / 60 = <TotalAmountOfTime as="decimal"/> total reading time</code></pre>
+6. Divide the number of words read correctly by the total reading time in decimal form.
+  <pre><code><TotalNumberOfCorrectWords/> / <TotalAmountOfTime as="decimal"/> = <TotalWordsCorrectPerMinute/> Words Correct per Minute (WCPM)</code></pre>
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 </Right>
 
@@ -116,7 +110,7 @@ Each student read out load a passage set in a control of Times New Roman, then f
 
 </Left>
 
-<Sidebar grid="4 / span 6" marginTop="30vh">
+<Sidebar>
   <Tester weight="regular" />
   <Tester weight="deca"/>
   <Tester weight="mega"/>
@@ -127,13 +121,13 @@ Each student read out load a passage set in a control of Times New Roman, then f
 
 <Container>
 
-<Sidebar grid="1 / span 2">
+<Sidebar>
 <Page>
   <ReadingSimulator/>
 </Page>
 </Sidebar>
 
-<Right grid="3 / span 6">
+<Right>
 <ChartsII/>
 </Right>
 </Container>
@@ -142,7 +136,7 @@ Each student read out load a passage set in a control of Times New Roman, then f
 
 <Container>
 
-<Left grid="1 / span 3" >
+<Left>
 
 ## A Virtue of Variable Font Technology
 

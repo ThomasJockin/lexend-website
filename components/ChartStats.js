@@ -40,6 +40,7 @@ const Stats = () => {
 
 const StatsContainer = styled('section')`
   display: flex;
+  flex-wrap: wrap;
 `
 const Stat = styled('div')`
   margin: 0.618rem;

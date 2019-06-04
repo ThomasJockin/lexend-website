@@ -30,18 +30,25 @@ const Tooltip = ({ id, value, color, indexValue: student, ...rest }) => (
 );
 
 const BarChart = () => {
-  const { setTypeFamily } = useContext(TypeChoicesContext)
+  const { family, setTypeFamily } = useContext(TypeChoicesContext)
   return (
   <ResponsiveBar
     onMouseEnter={({ id }) => setTypeFamily(id)}
     data={data}
     keys={["Times New Roman", "Lexend"]}
     indexBy="Student"
-    margin={{ top: 80, right: 0, bottom: 50, left: 60 }}
+    margin={{ top: 80, right: 0, bottom: 50, left: 47 }}
     padding={0.24}
     groupMode="grouped"
     enableGridX
     tooltip={Tooltip}
+    borderRadius={3}
+    colors={
+      [
+        'hsla(0, 0%, 85%, 1)',
+        'rgba(250, 76, 76, 1)'
+      ]
+    }
     legends={[
       {
         dataFrom: "keys",
@@ -71,7 +78,7 @@ const BarChart = () => {
     axisLeft={{
       legend: 'Correct Words per Minute',
       legendPosition: 'middle',
-      legendOffset: -54
+      legendOffset: -40
     }}
     axisBottom={{
       legend: 'Anonymous Student #',
@@ -91,9 +98,12 @@ const BarChart = () => {
 }
 
 const Container = styled("section")`
-  width: auto;
+  min-width: 50vw;
+  width: 100%;
   height: 80vh;
-  padding: 2rem;
+  g {
+    cursor: pointer;
+  }
 `;
 
 export default Charts;

@@ -13,7 +13,6 @@ const global = css`
       font-optical-sizing: auto;
   }
 
-
   html,
   body {
     padding: 0 0;
@@ -26,6 +25,11 @@ const global = css`
   }
   body {
     padding: 0 1rem;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 `
 

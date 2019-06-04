@@ -1,9 +1,10 @@
+import texts from '../data/texts'
 import styled from '@emotion/styled'
 import { useContext } from 'react'
 import TypeChoicesContext from '../lib/useTypeChoices'
 
-const ReadingSimulatorControls = ({ family, changeFamily, disabled = [], wpm, setWPM, started, on, off }) => {
-
+const ReadingSimulatorControls = ({ family, changeFamily, text, setText, disabled = [], wpm, setWPM, started, on, off }) => {
+  const changeText = ({target}) => setText(target.value)
   return (
     <ControlBar>
       <label>
@@ -17,6 +18,11 @@ const ReadingSimulatorControls = ({ family, changeFamily, disabled = [], wpm, se
           />
 
       </label>
+      <Select disabled={disabled.includes('texts')} onChange={changeText}>
+        {
+          texts.map((_, i) => <option value={i} selected={text == i}>Text #{i}</option>)
+        }
+      </Select>
       <Select onChange={changeFamily} disabled={disabled.includes('family')}>
         <option value="Times New Roman" selected={family === 'Times New Roman'}>Times New Roman</option>
         <option value="Lexend" selected={family === 'Lexend'}>Lexend</option>

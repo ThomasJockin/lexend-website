@@ -13,5 +13,8 @@ const Page = styled('div')`
   p {
     line-height: 1.7;
   }
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `
 export default Page

@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react'
 
 
 const Simulator = ({ disabled = [], ...props }) => {
-  const { family, setTypeFamily, axis, customStyles } = useContext(TypeChoicesContext)
+  const { family, text, setText, setTypeFamily, axis, customStyles } = useContext(TypeChoicesContext)
   const { words, wpm, setWPM, started, setStarted, index, errors, timer } = useContext(ReadingSimulatorContext)
   const changeFamily = ({ target }) => setTypeFamily(target.value)
 
@@ -22,6 +22,8 @@ const Simulator = ({ disabled = [], ...props }) => {
       wpm={wpm}
       setWPM={setWPM}
       started={started}
+      text={text}
+      setText={setText}
       on={() => setStarted(true)}
       off={() => setStarted(false)}
       family={props.family || family}

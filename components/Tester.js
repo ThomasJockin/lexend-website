@@ -45,7 +45,8 @@ const Tester = ({ weight, lxnd }) => {
       lxnd = 100
       break;
     default:
-      lxnd = axis
+      lxnd = axis.LXND
+      break
   }
 
   const style = {
@@ -73,9 +74,9 @@ const Tester = ({ weight, lxnd }) => {
           <label htmlFor="lxnd-axis">
             Variable Font Settings for CSS
           </label>
-          <CSS>
+          <pre>
             <code>{exampleCSS}</code>
-          </CSS>
+          </pre>
         </Controls>
       }
 
@@ -96,7 +97,7 @@ letter-spacing: 2px;
 `
 
 const Controls = styled('sidebar')`
-  width: 50%;
+  max-width: 800px;
   padding: 1rem 0.618rem;
   margin: 0;
   input {
@@ -110,15 +111,9 @@ const Controls = styled('sidebar')`
     letter-spacing: 2px;
     margin: 2.618rem 0 0.618rem;
   }
-`
-
-const CSS = styled('pre')`
-  background: rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 0.192rem;
-  padding: 0.618rem 1rem;
-  font-size: 0.718rem;
-  width: 100%;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `
 
 const H1 = styled('h1')`
@@ -134,8 +129,18 @@ span {
 & + p {
   margin-left: 0.392rem;
 }
+@media (max-width: 960px) {
+  font-size: 4.2rem !important;
+}
 `
 
-const Title = ({ children, ...props }) => <H1>{children.split("").map((child, i) => <span key={`${child}-${i}`} {...props}>{child}</span>)}</H1>
+const Title = ({ children, ...props }) => (
+  <H1>
+  {
+    children.split("")
+    .map((child, i) => <span key={`${child}-${i}`} {...props}>{child}</span>)
+  }
+  </H1>
+)
 
 export default Tester
