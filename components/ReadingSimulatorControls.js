@@ -7,23 +7,23 @@ const ReadingSimulatorControls = ({ family, changeFamily, text, setText, disable
   const changeText = ({target}) => setText(target.value)
   return (
     <ControlBar>
-      <label>
-        Avg Words per minute ({wpm}) <br/>
-
+      <WPMBar>
+        <label>
+          Avg WPM ({wpm})
+        </label>
         <input
           type="range" min="50" max="400" step="50" value={wpm}
           onChange={({ target }) => setWPM(target.value)}
           onMouseDown={off}
           onMouseUp={on}
           />
-
-      </label>
-      <Select disabled={disabled.includes('texts')} onChange={changeText}>
+      </WPMBar>
+      <Select key="texts" disabled={disabled.includes('texts')} onChange={changeText}>
         {
           texts.map((_, i) => <option value={i} selected={text == i}>Text #{i}</option>)
         }
       </Select>
-      <Select onChange={changeFamily} disabled={disabled.includes('family')}>
+      <Select key="family" onChange={changeFamily} disabled={disabled.includes('family')}>
         <option value="Times New Roman" selected={family === 'Times New Roman'}>Times New Roman</option>
         <option value="Lexend" selected={family === 'Lexend'}>Lexend</option>
       </Select>
@@ -39,19 +39,26 @@ const ReadingSimulatorControls = ({ family, changeFamily, text, setText, disable
 
 const ControlBar = styled('nav')`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0,0,0,0.12);
   padding-bottom: 1em;
   margin-bottom: 3em;
+
   input {
     cursor: grab;
+    width: 100%;
+  }
+  label {
+    max-width: 20%;
   }
 `
 
-const Select = styled('select')`
-margin-right: 0.618rem;
+const Select = styled('select')``
+const WPMBar = styled('div')`
+max-width: 30%;
 `
 
 const Button = styled("button")`
@@ -67,6 +74,9 @@ transition: all 300ms ease-in;
 &:focus { outline: none; }
 background: ${props => props.started ? 'white' : 'red'};
 color: ${props => props.started ? 'black' : 'white'};
+@media (max-width: 1020px) {
+  width: 100%;
+}
 `
 
 export default ReadingSimulatorControls

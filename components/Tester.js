@@ -55,10 +55,10 @@ const Tester = ({ weight, lxnd }) => {
 
   const exampleCSS = `h1, p { font-variation-settings: 'LXND' ${axis.LXND}; }`
   return (
-    <div>
-      {weight && <Weight>{weight}</Weight>}
+    <Container>
+      {weight && <Weight style={{...style}}>{weight}</Weight>}
       <Title style={{ ...style }}>LEXEND</Title>
-      <Container>
+
       {
         !weight &&
         <Controls>
@@ -80,15 +80,12 @@ const Tester = ({ weight, lxnd }) => {
         </Controls>
       }
 
-      </Container>
-    </div>
+    </Container>
   );
 };
 
 const Container = styled('section')`
-  display: flex;
-  margin-top: 0;
-  margin-bottom: 4rem;
+  padding: 3rem 0;
 `
 const Weight = styled('span')`
 text-transform: uppercase;
@@ -100,6 +97,13 @@ const Controls = styled('sidebar')`
   max-width: 800px;
   padding: 1rem 0.618rem;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-bottom: 1.618rem;
+  @media (max-width: 1200px) {
+    margin-top: 2rem;
+  }
   input {
     cursor: grab;
     width: 100%;
@@ -117,10 +121,11 @@ const Controls = styled('sidebar')`
 `
 
 const H1 = styled('h1')`
-font-size: 6.4rem !important;
+font-size: 5.2rem !important;
 line-height: 1;
 margin: 0;
 padding: 0;
+font-weight: normal;
 span {
   display: inline-block;
   margin: 2px;
@@ -129,8 +134,11 @@ span {
 & + p {
   margin-left: 0.392rem;
 }
-@media (max-width: 960px) {
-  font-size: 4.2rem !important;
+@media (max-width: 1510px) {
+  font-size: 3.8rem !important;
+}
+@media (max-width: 1160px) {
+  font-size: 2.4rem !important;
 }
 `
 

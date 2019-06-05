@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/core'
 import Head from 'next/head'
 import Nav from './Nav'
+import Footer from './Footer'
 import Logo from './Logo'
 
 const global = css`
@@ -15,7 +16,7 @@ const global = css`
 
   html,
   body {
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     background: white;
     min-height: 100%;
@@ -25,11 +26,76 @@ const global = css`
   }
   body {
     padding: 0 1rem;
+    overflow-x: hidden;
   }
   * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+  h2 {
+    font-size: 2.7rem;
+    line-height: 1.2;
+    margin-top: 10vh;
+    span {
+      font-size: 30%;
+    }
+  }
+  h3 {
+    font-size: 1.4rem;
+    margin: 3rem 0 0.618rem;
+  }
+  h6 {
+    color: #A9A9A9;
+    font-variation-settings: 'LXND' 20;
+  }
+  a {
+    color: red;
+    font-variation-settings: 'LXND' 80;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    &:before {
+      content: "⌁";
+      margin: 0 0.192rem;
+      font-size: 140%;
+    }
+  }
+  p {
+    max-width: 700px;
+    color: rgba(0,0,0,0.76);
+    line-height: 1.6;
+  }
+  ul, ol {
+    color: rgba(0,0,0,0.76);
+    max-width: 960px;
+    line-height: 1.6;
+    padding: 0 0 0 0.618rem;
+    li {
+      margin: 0.618rem 0 0.392rem;
+    }
+  }
+  pre {
+    display: block;
+    width: 100%;
+    background: rgba(0,0,0,0.06);
+    border-radius: 0.292rem;
+    padding: 0.618rem;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  code {
+    display: block;
+    width: 100%;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 0.192rem;
+    padding: 0.392rem 0.618rem;
+    background: white;
+    overflow-x: auto;
   }
 `
 
@@ -56,6 +122,7 @@ export default ({ children }) => {
         <Logo/>
       </Nav>
       { children }
+      <Footer/>
     </>
   )
 }

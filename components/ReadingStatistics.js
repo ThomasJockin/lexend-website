@@ -52,13 +52,20 @@ const ReadingStatistics = ({ words, wpm, timer, errors, index }) => {
   return (
     <Bar>
         <Stats>
-          <strong>Time to read:</strong> {prettyMs(timer)}
+          <strong>Time to read</strong>
+          {prettyMs(timer)}
         </Stats>
         <Stats>
-          {index} <strong>words read </strong>
-           - {currentErrors} <strong>errors </strong>
-           =
-           <h5>{cwpm} <strong>Actual Words Correct per Minute</strong></h5>
+          <strong>Words read</strong>
+          {index}
+        </Stats>
+        <Stats>
+          <strong>Errors</strong>
+          {currentErrors}
+        </Stats>
+        <Stats>
+          <strong>Words Correct per Minute</strong>
+           {cwpm} WCPM
         </Stats>
     </Bar>
   )
@@ -66,20 +73,37 @@ const ReadingStatistics = ({ words, wpm, timer, errors, index }) => {
 
 const Bar = styled('div')`
 display: flex;
-width: 100%;
+width: 105%;
 align-items: flex-start;
 justify-content: space-between;
-border-top: 1px solid rgba(0,0,0,0.12);
-padding-top: 1em;
+border-top: 1px solid rgba(0,0,0,0.48);
 margin-top: auto;
+position: relative;
+left: -2.5%;
 `
 
 const Stats = styled('div')`
-  margin: 0 0 1rem;
+  margin: 0 0 0;
   text-align: right;
+  padding: 1rem 1rem 0;
+  &:last-child {
+    border-right: none;
+  }
   h5 {
     margin: 0;
     font-size: 1rem;
+    font-weight: normal;
+  }
+  font-size: 1.2rem;
+  color: rgba(0,0,0,1);
+  strong {
+    font-size: 40%;
+    font-variation-settings: 'LXND' 30;
+    display: block;
+    margin-bottom: 0.192rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-right: -0.392rem;
   }
 `
 
