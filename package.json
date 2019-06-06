@@ -27,8 +27,10 @@
     "pretty-ms": "^5.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-scale-text": "^1.2.2",
     "react-speedy-reader": "^1.0.15",
     "react-spring": "^8.0.20",
+    "react-textfit": "^1.1.0",
     "react-variable-fonts": "^1.2.2",
     "recharts": "^1.6.2",
     "vx": "^0.0.1"

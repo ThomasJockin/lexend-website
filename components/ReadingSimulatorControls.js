@@ -18,14 +18,15 @@ const ReadingSimulatorControls = ({ family, changeFamily, text, setText, disable
           onMouseUp={on}
           />
       </WPMBar>
-      <Select key="texts" disabled={disabled.includes('texts')} onChange={changeText}>
+      <Select key="texts" disabled={disabled.includes('texts')} onChange={changeText} value={text}>
         {
-          texts.map((_, i) => <option value={i} selected={text == i}>Text #{i}</option>)
+          texts.map((_, i) => <option key={`text-${i}`} value={i}>Text #{i}</option>)
         }
       </Select>
-      <Select key="family" onChange={changeFamily} disabled={disabled.includes('family')}>
-        <option value="Times New Roman" selected={family === 'Times New Roman'}>Times New Roman</option>
-        <option value="Lexend" selected={family === 'Lexend'}>Lexend</option>
+      <Select key="family" onChange={changeFamily} disabled={disabled.includes('family')}
+      value={family}>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Lexend">Lexend</option>
       </Select>
       <Button
         onClick={() => started ? off() : on() }
@@ -46,17 +47,28 @@ const ControlBar = styled('nav')`
   border-bottom: 1px solid rgba(0,0,0,0.12);
   padding-bottom: 1em;
   margin-bottom: 3em;
-
   input {
     cursor: grab;
     width: 100%;
   }
   label {
     max-width: 20%;
+    margin-left: 4px;
   }
 `
 
-const Select = styled('select')``
+const Select = styled('select')`
+  height: 35px;
+  background: white;
+  padding: 0 0.192rem;
+  font-size: 1.1em;
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+  margin-left: 10px;
+  border: none;
+  outline: none;
+`
 const WPMBar = styled('div')`
 max-width: 30%;
 `
@@ -71,11 +83,13 @@ border: none;
 border-radius: 3px;
 padding: 0.618em 1em;
 transition: all 300ms ease-in;
-&:focus { outline: none; }
+outline: none;
+min-width: 70px;
 background: ${props => props.started ? 'white' : 'red'};
 color: ${props => props.started ? 'black' : 'white'};
 @media (max-width: 1020px) {
   width: 100%;
+  margin-top: 0.392rem;
 }
 `
 

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import useVariableFont from "react-variable-fonts"
-import { Flex, Left, Right, Sidebar, Intro } from '../components'
+import { Flex, Left, Right, Intro } from '../components'
 import { TypeChoicesProvider } from '../lib/useTypeChoices'
 import { ReadingSimulatorProvider } from '../lib/useReadingSimulator'
-
+import AnimatedNumber from '../components/AnimatedNumber'
 import styled from '@emotion/styled'
 import texts from '../data/texts'
 import Page from '../components/Page'
@@ -28,7 +28,7 @@ As prescription eyeglasses achieve proficiency for persons with short-sightednes
 
 ###### Excerpts from “The Stroke” by Gerrit Noordzji
 
-# The US Department of Education reports that **only 36% of students are reading-proficient.** This would appear to confirm Noordzij’s hyperbolic warning.
+# The US Department of Education reports that **only <AnimatedNumber>36</AnimatedNumber>% of students are reading-proficient.** This would appear to confirm Noordzij’s hyperbolic warning.
 
 ###### [Source](https://www.nationsreportcard.gov/reading_math_2015/#reading?grade=4) • Retrieved 30 August 2017
 
@@ -131,26 +131,26 @@ Each student read out loud a passage set in a control of Times New Roman, then f
 
 <ChartStats>
 
-**1** could not be measured
+17/19 had better scores with Lexend over Times New Roman
 
-**2** had the best score with Times New Roman
+1 could not be measured
 
-**2** had the best score with Lexend Regular
+2 had the best score with Times New Roman
 
-**1** had the best score with Lexend Deca
+2 had the best score with Lexend Regular
 
-**9** had the best score with Lexend Mega
+1 had the best score with Lexend Deca
 
-**5** had the best score with Lexend Giga
+9 had the best score with Lexend Mega
+
+5 had the best score with Lexend Giga
 
 
-**17/19** had better scores with Lexend over Times New Roman
+110 Avg WCPM for Times New Roman
 
-**110** Avg WCPM for Times New Roman
+128 Avg WCPM for Lexend
 
-**127.8** Avg WCPM for Lexend
-
-**+19.8%** Avg Improvement in WCPM
++19.8% Avg Improvement in WCPM
 
 </ChartStats>
 

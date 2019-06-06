@@ -1,66 +1,104 @@
+import ScaleText from "react-scale-text"
+import { Textfit } from 'react-textfit'
 import data from '../data/TNRvsLXND'
 import styled from "@emotion/styled"
-
+import AnimatedNumber from '../components/AnimatedNumber'
 const avg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
-
 const max = arr => Math.max(...arr);
+
 
 const Stats = ({ children = [] }) => {
   return (
     <StatsContainer>
-      { children.map( (stat, i) => <Stat key={`stat-${i}`}>{stat}</Stat> )}
+      { children.map( (stat, i) => <AnimatedStat key={`stat-${i}`} index={i}>{stat}</AnimatedStat> )}
     </StatsContainer>
   )
 }
 
-// <Stat>
-//   <h3>17<span>/</span>19</h3>
-//   <p>had better scores with Lexend over Times New Roman</p>
-// </Stat>
-//
-// <Stat>
-//   <h3>110</h3>
-//   <p>Avg WCPM for Times New Roman</p>
-// </Stat>
-// <Stat>
-//   <h3>127.8</h3>
-//   <p>Avg WCPM for Lexend</p>
-// </Stat>
-// <Stat>
-//   <h3><span>+</span>19.8<span>%</span></h3>
-//   <p>Avg Improvement in WCPM</p>
-// </Stat>
-// <Stat>
-//   <h3><span>+</span>47.2<span>%</span></h3>
-//   <p>Biggest Improvement in WCPM using Lexend</p>
-// </Stat>
-// <Stat>
-//   <h3><span>-</span>3.8<span>%</span></h3>
-//   <p>Biggest Regression in WCPM using Lexend</p>
-// </Stat>
+const AnimatedStat = ({ index, children }) => {
+  // const regex = /([+|-])?(\d+)(?:\.\d+)?([\/|%])?/gm
+  const regex = /([+|-])?((\d+[\/\d.]*|\d))([\/|%])?\s(.+)/gm
+  let [matched, plusminus, number, _, percent, label ] = children.props.children.split(regex)
+  return (
+    <Stat background={number}>
+      <h5>
+        <span className='extra'>{plusminus}</span>
+          <AnimatedNumber delay={index}>{number}</AnimatedNumber>
+        <span className='extra'>{percent}</span>
+      </h5>
+
+      <p>
+      {label}
+      </p>
+    </Stat>
+  )
+}
+
 
 const StatsContainer = styled('section')`
+  width: 100%;
+  border: 1px solid red;
+  padding: 0.192rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 0.192rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
 `
 const Stat = styled('div')`
-  margin: 0.618rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  padding: 1rem;
+  position: relative;
+  border: 1px solid red;
+  padding: 3rem 0.618rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   p {
+    margin: 0 auto;
+    text-align: center;
     color: rgba(0,0,0,0.7);
     font-size: 0.618rem;
     font-variation-settings: 'LXND' 80;
     text-transform: uppercase;
     line-height: 1.6;
   }
-  strong {
+  h5, strong {
     font-variation-settings: 'LXND' 0;
     display: block;
-    font-size: 4.8rem;
+    font-size: 4.8vw;
     font-weight: normal;
     margin: 0.392rem 0;
-    line-height: 1;
+    line-height: 1.2;
+    em {
+      font-size: 30%;
+      vertical-align: super;
+      position: relative;
+      top: 10%;
+      margin: 0 0.618rem;
+      font-style: normal;
+    }
+    .extra {
+      font-size: 40%;
+      vertical-align: middle;
+    }
+  }
+  &:nth-child(1) {
+    grid-column: span 2;
+    h5 {
+      font-size: 10vw;
+      @media (max-width: 960px) {
+        font-size: 20vw;
+      }
+    }
+  }
+  &:nth-child(10) {
+    grid-column: span 2;
+    h5 {
+      font-size: 10vw;
+      @media (max-width: 960px) {
+        font-size: 20vw;
+      }
+    }
   }
 `
 

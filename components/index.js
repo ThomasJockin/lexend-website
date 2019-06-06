@@ -20,6 +20,7 @@ ${ props => props.sticky && css`
 `}
 @media (max-width: 960px) {
   max-width: 100%;
+  width: 100%;
   position: static;
 }
 `
@@ -58,7 +59,7 @@ top: ${props => props.top || '2rem'};
 export const Intro = styled('section')`
   padding: 1rem;
   h1 {
-    font-size: 7.2rem;
+    font-size: 7.2vw;
     line-height: 1.1;
     margin: 14vh 3.618vw 3.618rem;
     font-weight: normal;

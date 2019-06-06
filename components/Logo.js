@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useTrail, animated } from "react-spring";
 import { useState } from "react";
 
-const config = { mass: 0.2, tension: 150, friction: 10 }
+const config = { mass: 0.2, tension: 100, friction: 10 }
 const items = "LEXEND".split("")
 const isE = letter => letter === "E"
 

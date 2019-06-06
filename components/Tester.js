@@ -85,7 +85,7 @@ const Tester = ({ weight, lxnd }) => {
 };
 
 const Container = styled('section')`
-  padding: 3rem 0;
+  padding: 1.618rem 0;
 `
 const Weight = styled('span')`
 text-transform: uppercase;
@@ -93,7 +93,7 @@ font-size: 80%;
 letter-spacing: 2px;
 `
 
-const Controls = styled('sidebar')`
+const Controls = styled('nav')`
   max-width: 800px;
   padding: 1rem 0.618rem;
   margin: 0;
@@ -101,8 +101,8 @@ const Controls = styled('sidebar')`
   flex-direction: column;
   margin-top: 0;
   margin-bottom: 1.618rem;
-  @media (max-width: 1200px) {
-    margin-top: 2rem;
+  @media (max-width: 960px) {
+    max-width: 100%;
   }
   input {
     cursor: grab;
@@ -121,7 +121,7 @@ const Controls = styled('sidebar')`
 `
 
 const H1 = styled('h1')`
-font-size: 5.2rem !important;
+font-size: 7.2vw !important;
 line-height: 1;
 margin: 0;
 padding: 0;
@@ -134,11 +134,8 @@ span {
 & + p {
   margin-left: 0.392rem;
 }
-@media (max-width: 1510px) {
-  font-size: 3.8rem !important;
-}
-@media (max-width: 1160px) {
-  font-size: 2.4rem !important;
+@media (max-width: 960px) {
+  font-size: 14vw !important;
 }
 `
 

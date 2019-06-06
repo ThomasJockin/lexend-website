@@ -98,9 +98,9 @@ const Stats = styled('div')`
   color: rgba(0,0,0,1);
   strong {
     font-size: 40%;
-    font-variation-settings: 'LXND' 30;
     display: block;
     margin-bottom: 0.192rem;
+    font-variation-settings: 'LXND' 30;
     font-weight: normal;
     text-transform: uppercase;
     margin-right: -0.392rem;
