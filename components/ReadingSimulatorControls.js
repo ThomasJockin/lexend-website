@@ -58,6 +58,7 @@ const ControlBar = styled('nav')`
 `
 
 const Select = styled('select')`
+  -webkit-appearance:none;
   height: 35px;
   background: white;
   padding: 0 0.192rem;
@@ -74,6 +75,7 @@ max-width: 30%;
 `
 
 const Button = styled("button")`
+-webkit-appearance:none;
 font-family: "Lexend", Helvetica, Arial, sans-serif;
 text-transform: uppercase;
 letter-spacing: 2px;

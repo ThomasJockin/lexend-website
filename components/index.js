@@ -21,6 +21,7 @@ ${ props => props.sticky && css`
 @media (max-width: 960px) {
   max-width: 100%;
   width: 100%;
+  min-width: auto;
   position: static;
 }
 `
@@ -47,9 +48,9 @@ height: 90vh;
 padding: ${props => props.padding || '0 2rem 3rem'};
 margin: ${props => props.margin || '0'};
 top: ${props => props.top || '2rem'};
-@media (max-width: 970px) {
+@media (max-width: 960px) {
   min-width: 320px;
-  max-width: 540px;
+  max-width: 100%;
   position: static;
   margin: 0 auto 0;
   padding: 0.192rem;
@@ -69,7 +70,8 @@ export const Intro = styled('section')`
     }
     @media (max-width: 960px) {
       width: 100%;
-      font-size: 4.2rem;
+      font-size: 12vw;
+      line-height: 1.2;
       margin-left: 0;
       margin-right: 0;
     }
@@ -135,6 +137,7 @@ export const Intro = styled('section')`
     @media (max-width: 960px) {
       max-width: 100%;
       left: 0;
+      left: 0;
     }
     p {
       font-size: 1.2rem;
@@ -165,6 +168,7 @@ export const Intro = styled('section')`
       bottom: -4%;
       filter: drop-shadow(0.618rem 0.618rem 0.392rem rgba(0,0,0,0.12));
       @media (max-width: 960px) {
+        display: none;
         max-width: 220px;
         position: static;
         margin-top: -8rem;

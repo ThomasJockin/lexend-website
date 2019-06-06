@@ -121,7 +121,7 @@ const Controls = styled('nav')`
 `
 
 const H1 = styled('h1')`
-font-size: 7.2vw !important;
+font-size: 6.4vw !important;
 line-height: 1;
 margin: 0;
 padding: 0;
@@ -135,7 +135,7 @@ span {
   margin-left: 0.392rem;
 }
 @media (max-width: 960px) {
-  font-size: 14vw !important;
+  font-size: 12vw !important;
 }
 `
 

@@ -23,10 +23,13 @@ const global = css`
     font-family: "Lexend", Helvetica, Arial, sans-serif;
     font-size: 18px;
     line-height: 1.4;
+    overflow-x: hidden;
+    @media (max-width: 640px) {
+      font-size: 14px;
+    }
   }
   body {
     padding: 0 1rem;
-    overflow-x: hidden;
   }
   * {
     box-sizing: border-box;
@@ -73,9 +76,14 @@ const global = css`
   ul, ol {
     color: rgba(0,0,0,0.76);
     max-width: 960px;
+    width: 100%;
     line-height: 1.6;
     padding: 0 0 0 0.618rem;
+    @media (max-width: 960px) {
+      padding-left: 1rem;
+    }
     li {
+      max-width: 100%;
       margin: 0.618rem 0 0.392rem;
     }
   }

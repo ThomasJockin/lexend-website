@@ -41,7 +41,7 @@ const StatsContainer = styled('section')`
   padding: 0.192rem;
   display: grid;
   grid-gap: 0.192rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 
 `
 const Stat = styled('div')`
@@ -87,7 +87,7 @@ const Stat = styled('div')`
     h5 {
       font-size: 10vw;
       @media (max-width: 960px) {
-        font-size: 20vw;
+        font-size: 12vw;
       }
     }
   }
@@ -96,7 +96,7 @@ const Stat = styled('div')`
     h5 {
       font-size: 10vw;
       @media (max-width: 960px) {
-        font-size: 20vw;
+        font-size: 12vw;
       }
     }
   }
