@@ -23,7 +23,6 @@ const global = css`
     font-family: "Lexend", Helvetica, Arial, sans-serif;
     font-size: 18px;
     line-height: 1.4;
-    overflow-x: hidden;
     @media (max-width: 640px) {
       font-size: 14px;
     }

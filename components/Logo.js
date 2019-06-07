@@ -1,19 +1,22 @@
 import styled from "@emotion/styled";
 import { useTrail, animated } from "react-spring";
 import { useState } from "react";
+import useHover from '../lib/useHover'
 
 const config = { mass: 0.2, tension: 100, friction: 10 }
 const items = "LEXEND".split("")
 const isE = letter => letter === "E"
 
 export default () => {
-  const [toggled, toggle] = useState(false);
+
+  const [hoverRef, hovering] = useHover()
+
   const trail = useTrail(items.length, {
     config,
-    opacity: toggled ? 1 : 0,
-    x: toggled ? 0 : 20,
-    width: toggled ? 25 : 0,
-    fontVariationSettings: toggled ? "'LXND' 100" : "'LXND' 0",
+    opacity: hovering ? 1 : 0,
+    x: hovering ? 0 : 20,
+    width: hovering ? 25 : 0,
+    fontVariationSettings: hovering ? "'LXND' 100" : "'LXND' 0",
     from: {
       opacity: 0,
       x: 20,
@@ -24,13 +27,9 @@ export default () => {
   });
 
   return (
-    <Logo
-      onMouseEnter={() => toggle(true)}
-      onMouseLeave={() => toggle(false)}
-      >
-
+    <Logo ref={hoverRef}>
       {trail.map(({ x, width, opacity, ...rest }, index) => (
-        <Span key={`${items[index]}-${index}`} style={{
+        <Span key={`logo-${items[index]}`} style={{
           x: isE(items[index]) ? x : null,
           width: isE(items[index]) ? width : null,
           opacity: isE(items[index]) ? opacity : null,

@@ -20,7 +20,7 @@ const AnimatedStat = ({ index, children }) => {
   const regex = /([+|-])?((\d+[\/\d.]*|\d))([\/|%])?\s(.+)/gm
   let [matched, plusminus, number, _, percent, label ] = children.props.children.split(regex)
   return (
-    <Stat background={number}>
+    <Stat key={`stat-${index}-${number}`}>
       <h5>
         <span className='extra'>{plusminus}</span>
           <AnimatedNumber delay={index}>{number}</AnimatedNumber>
@@ -39,20 +39,22 @@ const StatsContainer = styled('section')`
   width: 100%;
   border: 1px solid red;
   padding: 0.192rem;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
   grid-gap: 0.192rem;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
 `
 const Stat = styled('div')`
   position: relative;
   border: 1px solid red;
   padding: 3rem 0.618rem;
   text-align: center;
+  flex: 1 1 20%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
+  margin: 0.192rem;
   p {
     margin: 0 auto;
     text-align: center;
@@ -84,6 +86,7 @@ const Stat = styled('div')`
   }
   &:nth-child(1) {
     grid-column: span 2;
+    min-width: 50%;
     h5 {
       font-size: 10vw;
       @media (max-width: 960px) {
@@ -93,6 +96,7 @@ const Stat = styled('div')`
   }
   &:nth-child(10) {
     grid-column: span 2;
+    min-width: 50%;
     h5 {
       font-size: 10vw;
       @media (max-width: 960px) {

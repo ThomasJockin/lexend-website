@@ -40,6 +40,27 @@ ${ props => props.sticky && css`
 }
 `
 
+export const Button = styled("button")`
+-webkit-appearance:none;
+font-family: "Lexend", Helvetica, Arial, sans-serif;
+text-transform: uppercase;
+letter-spacing: 2px;
+cursor: pointer;
+appearance: none;
+border: none;
+border-radius: 3px;
+padding: 0.618em 1em;
+transition: all 300ms ease-in;
+outline: none;
+min-width: 70px;
+background: ${props => props.started ? 'white' : 'red'};
+color: ${props => props.started ? 'black' : 'white'};
+@media (max-width: 1020px) {
+  width: 100%;
+  margin-top: 0.392rem;
+}
+`
+
 export const Sidebar = styled('sidebar')`
 min-width: ${props => props.minWidth || '500px'};
 max-width: 40%;

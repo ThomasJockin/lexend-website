@@ -2,6 +2,7 @@ import texts from '../data/texts'
 import styled from '@emotion/styled'
 import { useContext } from 'react'
 import TypeChoicesContext from '../lib/useTypeChoices'
+import { Button } from '../components'
 
 const ReadingSimulatorControls = ({ family, changeFamily, text, setText, disabled = [], wpm, setWPM, started, on, off }) => {
   const changeText = ({target}) => setText(target.value)
@@ -60,39 +61,21 @@ const ControlBar = styled('nav')`
 const Select = styled('select')`
   -webkit-appearance:none;
   height: 35px;
+  padding: 0 0.818rem;
+  font-size: 1em;
   background: white;
-  padding: 0 0.192rem;
-  font-size: 1.1em;
+  border: 1px solid rgba(0,0,0,0.04);
   &:not([disabled]) {
     cursor: pointer;
+    background: rgba(0,0,0,0.04);
+    border-color: white;
   }
   margin-left: 10px;
-  border: none;
   outline: none;
 `
 const WPMBar = styled('div')`
 max-width: 30%;
 `
 
-const Button = styled("button")`
--webkit-appearance:none;
-font-family: "Lexend", Helvetica, Arial, sans-serif;
-text-transform: uppercase;
-letter-spacing: 2px;
-cursor: pointer;
-appearance: none;
-border: none;
-border-radius: 3px;
-padding: 0.618em 1em;
-transition: all 300ms ease-in;
-outline: none;
-min-width: 70px;
-background: ${props => props.started ? 'white' : 'red'};
-color: ${props => props.started ? 'black' : 'white'};
-@media (max-width: 1020px) {
-  width: 100%;
-  margin-top: 0.392rem;
-}
-`
 
 export default ReadingSimulatorControls

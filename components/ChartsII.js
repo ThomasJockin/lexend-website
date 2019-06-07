@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import TypeChoicesContext from '../lib/useTypeChoices'
+import useMediaQuery from '../lib/useMediaQuery'
 import styled from "@emotion/styled";
 import { ResponsiveBar } from "@nivo/bar";
 
@@ -32,16 +33,23 @@ const Tooltip = ({ id, value, color, indexValue: student, ...rest }) => (
 
 const BarChart = () => {
   const { family, setTypeFamily } = useContext(TypeChoicesContext)
+  const orientation = useMediaQuery(
+    // Media queries
+    ['(max-width: 960px)'],
+    ['horizontal'],
+    'vertical'
+  );
+
   return (
   <ResponsiveBar
     onMouseEnter={({ id }) => setTypeFamily(id)}
     data={data}
     keys={["Times New Roman", "Lexend"]}
     indexBy="Student"
-    margin={{ top: 80, right: 0, bottom: 50, left: 47 }}
+    margin={{ top: 80, right: 20, bottom: 50, left: 47 }}
     padding={0.24}
     groupMode="grouped"
-    layout="vertical"
+    layout={ orientation }
     enableGridX
     tooltip={Tooltip}
     colors={

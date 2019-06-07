@@ -6,6 +6,14 @@ const Footer = styled('footer')`
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
+  p {
+    font-size: 0.718rem;
+    margin: 0;
+    padding: 0;
+    a {
+      font-size: 0.8em;
+    }
+  }
   svg {
     opacity: 0.7;
     max-height: 2.392rem;
@@ -16,6 +24,9 @@ export default () => {
   return (
     <Footer>
       <FriendsOfGoogle/>
+      <p>
+        Type design by the talented <a href="http://thomasjockin.com/" target="_blank">Thomas Jockin</a>, with contributions from Sherlock Holmes, Dr. John H. Watson, and Santa Claus. Site design & development by <a href="https://micahrich.com/" target="_blank">Micah Rich</a>.
+      </p>
     </Footer>
   )
 }

@@ -6,7 +6,7 @@ const AnimatedNumber = ({ delay = 0, children }) => {
   const ref = useRef()
   const onScreen = useOnScreen(ref, '0px')
   const numbers = children.split("")
-  const results = numbers.map(item => {
+  const results = numbers.map((item, i) => {
     if (!parseInt(item)) {
       return item
     }
@@ -21,7 +21,7 @@ const AnimatedNumber = ({ delay = 0, children }) => {
       reverse: !onScreen
       })
     return (
-        <animated.span ref={ref} style={animation}>
+        <animated.span key={`animated-number-${i}`} ref={ref} style={animation}>
           { animation.number.interpolate(x => x.toFixed()) }
         </animated.span>
       )
